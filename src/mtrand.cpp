@@ -35,7 +35,7 @@ void MTRand_int32::seed(const unsigned long* array, int size) { // init by array
   int i = 1, j = 0;
   for (int k = ((n > size) ? n : size); k; --k) {
     state[i] = (state[i] ^ ((state[i - 1] ^ (state[i - 1] >> 30)) * 1664525UL))
-      + array[j] + j; // non linear
+               + array[j] + j; // non linear
     state[i] &= 0xFFFFFFFFUL; // for > 32 bit machines
     ++j; j %= size;
     if ((++i) == n) { state[0] = state[n - 1]; i = 1; }
